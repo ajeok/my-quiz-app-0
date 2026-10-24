@@ -2,7 +2,7 @@ let questions = [];
 let currentIndex = 0;
 let score = 0;
 
-// DOM ¿ä¼Ò ÂüÁ¶
+// DOM ìš”ì†Œ ì°¸ì¡°
 const loadingEl = document.getElementById("loading");
 const quizBoxEl = document.getElementById("quiz-box");
 const resultBoxEl = document.getElementById("result-box");
@@ -16,21 +16,21 @@ const progressBarEl = document.getElementById("progress-bar");
 const nextBtn = document.getElementById("next-btn");
 const restartBtn = document.getElementById("restart-btn");
 
-// 1. quiz.json ºñµ¿±â È£Ãâ
+// 1. quiz.json ë¹„ë™ê¸° í˜¸ì¶œ
 async function loadQuizData() {
   try {
     const response = await fetch("quiz.json");
     if (!response.ok) {
-      throw new Error("¹®Á¦ µ¥ÀÌÅÍ¸¦ °¡Á®¿ÀÁö ¸øÇß½À´Ï´Ù.");
+      throw new Error("ë¬¸ì œ ë°ì´í„°ë¥¼ ê°€ì ¸ì˜¤ì§€ ëª»í–ˆìŠµë‹ˆë‹¤.");
     }
     questions = await response.json();
     initQuiz();
   } catch (error) {
-    loadingEl.textContent = "¿¡·¯: " + error.message;
+    loadingEl.textContent = "ì—ëŸ¬: " + error.message;
   }
 }
 
-// 2. ÄûÁî ÃÊ±âÈ­
+// 2. í€´ì¦ˆ ì´ˆê¸°í™”
 function initQuiz() {
   currentIndex = 0;
   score = 0;
@@ -40,13 +40,13 @@ function initQuiz() {
   renderQuestion();
 }
 
-// 3. ¹®Á¦ ·»´õ¸µ
+// 3. ë¬¸ì œ ë Œë”ë§
 function renderQuestion() {
   const currentQ = questions[currentIndex];
 
-  // ÁøÇàµµ ¹× Çì´õ °»½Å
-  questionCountEl.textContent = `¹®Á¦ ${currentIndex + 1}/${questions.length}`;
-  scoreCounterEl.textContent = `Á¡¼ö: ${score}`;
+  // ì§„í–‰ë„ ë° í—¤ë” ê°±ì‹ 
+  questionCountEl.textContent = `ë¬¸ì œ ${currentIndex + 1}/${questions.length}`;
+  scoreCounterEl.textContent = `ì ìˆ˜: ${score}`;
   const progressPercent = ((currentIndex) / questions.length) * 100;
   progressBarEl.style.width = `${progressPercent}%`;
 
@@ -54,7 +54,7 @@ function renderQuestion() {
   explanationBoxEl.classList.add("hidden");
   optionsContainerEl.innerHTML = "";
 
-  // 4Áö¼±´Ù ¹öÆ° »ı¼º
+  // 4ì§€ì„ ë‹¤ ë²„íŠ¼ ìƒì„±
   currentQ.options.forEach((optText, idx) => {
     const btn = document.createElement("button");
     btn.className = "option-btn";
@@ -64,12 +64,12 @@ function renderQuestion() {
   });
 }
 
-// 4. º¸±â ¼±ÅÃ Ã³¸®
+// 4. ë³´ê¸° ì„ íƒ ì²˜ë¦¬
 function handleSelectOption(selectedIndex) {
   const currentQ = questions[currentIndex];
   const buttons = optionsContainerEl.querySelectorAll(".option-btn");
 
-  // ¸ğµç ¹öÆ° ºñÈ°¼ºÈ­ (Áßº¹ Å¬¸¯ ¹æÁö)
+  // ëª¨ë“  ë²„íŠ¼ ë¹„í™œì„±í™” (ì¤‘ë³µ í´ë¦­ ë°©ì§€)
   buttons.forEach((btn, idx) => {
     btn.disabled = true;
     if (idx === currentQ.answer) {
@@ -79,18 +79,18 @@ function handleSelectOption(selectedIndex) {
     }
   });
 
-  // Á¡¼ö ¹İ¿µ
+  // ì ìˆ˜ ë°˜ì˜
   if (selectedIndex === currentQ.answer) {
     score += 1;
-    scoreCounterEl.textContent = `Á¡¼ö: ${score}`;
+    scoreCounterEl.textContent = `ì ìˆ˜: ${score}`;
   }
 
-  // ÇØ¼³ ³ëÃâ
+  // í•´ì„¤ ë…¸ì¶œ
   explanationTextEl.textContent = currentQ.explanation;
   explanationBoxEl.classList.remove("hidden");
 }
 
-// 5. ´ÙÀ½ ¹®Á¦ ÀÌµ¿
+// 5. ë‹¤ìŒ ë¬¸ì œ ì´ë™
 nextBtn.addEventListener("click", () => {
   currentIndex += 1;
   if (currentIndex < questions.length) {
@@ -100,16 +100,16 @@ nextBtn.addEventListener("click", () => {
   }
 });
 
-// 6. °á°ú È­¸é Ç¥½Ã
+// 6. ê²°ê³¼ í™”ë©´ í‘œì‹œ
 function showResult() {
   quizBoxEl.classList.add("hidden");
   resultBoxEl.classList.remove("hidden");
   document.getElementById("final-score").textContent = 
-    `ÃÑ ${questions.length}¹®Á¦ Áß ${score}¹®Á¦¸¦ ¸ÂÇû½À´Ï´Ù! (${Math.round((score / questions.length) * 100)}Á¡)`;
+    `ì´ ${questions.length}ë¬¸ì œ ì¤‘ ${score}ë¬¸ì œë¥¼ ë§í˜”ìŠµë‹ˆë‹¤! (${Math.round((score / questions.length) * 100)}ì )`;
 }
 
-// 7. ´Ù½Ã Ç®±â
+// 7. ë‹¤ì‹œ í’€ê¸°
 restartBtn.addEventListener("click", initQuiz);
 
-// ½ÃÀÛ
+// ì‹œì‘
 loadQuizData();
