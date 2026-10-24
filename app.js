@@ -7,6 +7,8 @@ const loadingEl = document.getElementById("loading");
 const quizBoxEl = document.getElementById("quiz-box");
 const resultBoxEl = document.getElementById("result-box");
 const questionTextEl = document.getElementById("question-text");
+const questionImgContainer = document.getElementById("question-image-container");
+const questionImg = document.getElementById("question-image");
 const optionsContainerEl = document.getElementById("options-container");
 const explanationBoxEl = document.getElementById("explanation-box");
 const explanationTextEl = document.getElementById("explanation-text");
@@ -51,6 +53,16 @@ function renderQuestion() {
   progressBarEl.style.width = `${progressPercent}%`;
 
   questionTextEl.textContent = currentQ.question;
+
+  // 이미지 처리 (경로가 있으면 노출, 없으면 숨김)
+  if (currentQ.image) {
+    questionImg.src = currentQ.image;
+    questionImgContainer.classList.remove("hidden");
+  } else {
+    questionImgContainer.classList.add("hidden");
+    questionImg.src = "";
+  }
+
   explanationBoxEl.classList.add("hidden");
   optionsContainerEl.innerHTML = "";
 
@@ -69,7 +81,7 @@ function handleSelectOption(selectedIndex) {
   const currentQ = questions[currentIndex];
   const buttons = optionsContainerEl.querySelectorAll(".option-btn");
 
-  // 모든 버튼 비활성화 (중복 클릭 방지)
+  // 버튼 비활성화 및 정답/오답 표시
   buttons.forEach((btn, idx) => {
     btn.disabled = true;
     if (idx === currentQ.answer) {
@@ -79,13 +91,11 @@ function handleSelectOption(selectedIndex) {
     }
   });
 
-  // 점수 반영
   if (selectedIndex === currentQ.answer) {
     score += 1;
     scoreCounterEl.textContent = `점수: ${score}`;
   }
 
-  // 해설 노출
   explanationTextEl.textContent = currentQ.explanation;
   explanationBoxEl.classList.remove("hidden");
 }
@@ -111,5 +121,4 @@ function showResult() {
 // 7. 다시 풀기
 restartBtn.addEventListener("click", initQuiz);
 
-// 시작
 loadQuizData();
