@@ -62,7 +62,26 @@ body {
   font-size: 1.25rem;
   line-height: 1.5;
   color: #212529;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
+}
+
+/* 이미지 스타일 추가 */
+.image-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  background: #fafafa;
+  border: 1px solid #edf2f7;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+#question-image {
+  max-width: 100%;
+  max-height: 220px;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .options-list {
