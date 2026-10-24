@@ -165,3 +165,19 @@ body {
   font-size: 1.1rem;
   margin-bottom: 24px;
 }
+/* 상단 텍스트 박스 스타일 */
+.quiz-title-box {
+  background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+  border: 1.5px solid #bfdbfe;
+  border-radius: 10px;
+  padding: 14px 20px;
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.quiz-title-box h1 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #1e40af;
+  letter-spacing: -0.5px;
+}
