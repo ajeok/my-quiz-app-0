@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>학습용 퀴즈 웹앱</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="quiz-container">
+    <div id="loading" class="status-msg">문제를 불러오는 중...</div>
+
+    <!-- 퀴즈 영역 -->
+    <div id="quiz-box" class="hidden">
+      <div class="progress-bar-container">
+        <div id="progress-bar"></div>
+      </div>
+      <div class="quiz-header">
+        <span id="question-count">문제 1/3</span>
+        <span id="score-counter">점수: 0</span>
+      </div>
+
+      <h2 id="question-text">문제 내용이 여기에 표시됩니다.</h2>
+
+      <div id="options-container" class="options-list">
+        <!-- 자바스크립트로 보기 버튼 동적 생성 -->
+      </div>
+
+      <div id="explanation-box" class="explanation hidden">
+        <p id="explanation-text"></p>
+        <button id="next-btn">다음 문제</button>
+      </div>
+    </div>
+
+    <!-- 결과 화면 -->
+    <div id="result-box" class="hidden">
+      <h2>?? 퀴즈 완료!</h2>
+      <p id="final-score">총 3문제 중 3문제를 맞혔습니다.</p>
+      <button id="restart-btn">다시 풀기</button>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
