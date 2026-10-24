@@ -1,26 +1,42 @@
 [
   {
     "id": 1,
-    "question": "다음 로고가 상징하는 웹 기술은 무엇일까요?",
-    "image": "https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg",
-    "options": ["CSS3", "HTML5", "JavaScript", "Python"],
+    "question": "12와 18의 '최대공약수'는 얼마일까요?",
+    "image": null,
+    "options": ["3", "6", "9", "36"],
     "answer": 1,
-    "explanation": "이 로고는 HTML5의 공식 대표 로고입니다."
+    "explanation": "12의 약수는 1, 2, 3, 4, 6, 12이고 18의 약수는 1, 2, 3, 6, 9, 18입니다. 공통된 약수 중 가장 큰 수는 6입니다."
   },
   {
     "id": 2,
-    "question": "다음 중 브라우저 환경에서 동적인 동작을 구현할 때 주로 사용하는 언어는?",
+    "question": "다음 분수의 계산 결과로 알맞은 기약분수는 무엇일까요?\n\n1/4 + 2/5",
     "image": null,
-    "options": ["JavaScript", "C++", "SQL", "Swift"],
-    "answer": 0,
-    "explanation": "JavaScript는 웹 브라우저 내에서 이벤트 처리와 동적 UI 조작을 담당합니다."
+    "options": ["3/9", "3/20", "13/20", "7/10"],
+    "answer": 2,
+    "explanation": "분모를 20으로 통분하면 5/20 + 8/20 = 13/20이 됩니다."
   },
   {
     "id": 3,
-    "question": "CSS에서 요소를 가로·세로 중앙 정렬할 때 가장 유용한 디스플레이 속성은?",
+    "question": "밑변의 길이가 8cm이고 높이가 6cm인 삼각형의 넓이는 몇 cm²일까요?",
     "image": null,
-    "options": ["block", "inline", "flex", "static"],
+    "options": ["14cm²", "24cm²", "28cm²", "48cm²"],
+    "answer": 1,
+    "explanation": "삼각형의 넓이 공식은 (밑변 × 높이) ÷ 2 입니다. 따라서 (8 × 6) ÷ 2 = 24cm² 입니다."
+  },
+  {
+    "id": 4,
+    "question": "어떤 수의 배수를 작은 것부터 차례대로 쓴 것입니다. 이 수의 6번째 배수는 얼마일까요?\n\n7, 14, 21, 28, ...",
+    "image": null,
+    "options": ["35", "42", "48", "49"],
+    "answer": 1,
+    "explanation": "7의 배수이므로 6번째 배수는 7 × 6 = 42입니다."
+  },
+  {
+    "id": 5,
+    "question": "가로가 5cm, 세로가 4cm, 높이가 3cm인 직육면체의 모든 모서리의 길이의 합은 얼마일까요?",
+    "image": null,
+    "options": ["12cm", "24cm", "48cm", "60cm"],
     "answer": 2,
-    "explanation": "display: flex와 justify-content, align-items 속성을 사용하면 손쉽게 중앙 정렬할 수 있습니다."
+    "explanation": "직육면체는 가로, 세로, 높이 모서리가 각각 4개씩 있습니다. (5 + 4 + 3) × 4 = 12 × 4 = 48cm 입니다."
   }
 ]
