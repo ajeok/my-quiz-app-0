@@ -165,14 +165,26 @@ body {
   font-size: 1.1rem;
   margin-bottom: 24px;
 }
-/* 상단 텍스트 박스 스타일 */
+
+/* 상단 타이틀 박스 레이아웃 */
 .quiz-title-box {
   background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
   border: 1.5px solid #bfdbfe;
   border-radius: 10px;
-  padding: 14px 20px;
-  text-align: center;
+  padding: 12px 20px;
   margin-bottom: 22px;
+  display: flex;
+  align-items: center;      /* 로고와 글자 세로 중앙 맞춤 */
+  justify-content: center; /* 박스 가운데 정렬 */
+  gap: 12px;               /* 로고와 텍스트 간격 */
+}
+
+/* 반석초 로고 스타일 */
+.school-logo {
+  width: 40px;             /* 로고 가로 크기 */
+  height: 40px;            /* 로고 세로 크기 */
+  object-fit: contain;     /* 로고 비율 깨짐 방지 */
+  border-radius: 6px;      /* 모서리 살짝 둥글게 (완전 원형을 원하시면 50%) */
 }
 
 .quiz-title-box h1 {
@@ -180,4 +192,5 @@ body {
   font-weight: 700;
   color: #1e40af;
   letter-spacing: -0.5px;
+  margin: 0;
 }
